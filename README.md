@@ -1,5 +1,4 @@
 ![](https://img.shields.io/badge/Foundry-v12-informational)
-![Latest Release Download Count](https://img.shields.io/github/downloads/FBast/fvtt-module-connected-permission/releases/latest/download/connected-permission.zip)
 # Connected Permission
 
 **Connected Permission** is a minimal Foundry VTT module that adds a dropdown menu in the permission configuration window of any document (Journal, Scene, Table, etc.). This menu allows you to quickly assign a permission level to **all currently connected players** in one click, saving you from manually updating each user individually.
