@@ -1,3 +1,8 @@
 {
-    "MODULE.hello": "hello"
+    "PL1E.ConnectedPlayers": "Connected Players",
+    "PL1E.PermissionDefault": "Default",
+    "PL1E.PermissionNone": "None",
+    "PL1E.PermissionLimited": "Limited",
+    "PL1E.PermissionObserver": "Observer",
+    "PL1E.PermissionOwner": "Owner"
 }
