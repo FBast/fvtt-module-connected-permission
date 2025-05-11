@@ -4,7 +4,6 @@
   "description": "A minimal FoundryVTT module that adds a dropdown to assign document permissions to all currently connected players at once.",
   "version": "1.0.0",
   "library": false,
-  "manifestPlusVersion": "1.2.0",
   "compatibility": {
     "minimum": 10,
     "verified": 12,
