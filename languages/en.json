@@ -1,8 +1,8 @@
 {
-    "PL1E.ConnectedPlayers": "Connected Players",
-    "PL1E.PermissionDefault": "Default",
-    "PL1E.PermissionNone": "None",
-    "PL1E.PermissionLimited": "Limited",
-    "PL1E.PermissionObserver": "Observer",
-    "PL1E.PermissionOwner": "Owner"
+    "CP.ConnectedPlayers": "Connected Players",
+    "CP.PermissionDefault": "Default",
+    "CP.PermissionNone": "None",
+    "CP.PermissionLimited": "Limited",
+    "CP.PermissionObserver": "Observer",
+    "CP.PermissionOwner": "Owner"
 }

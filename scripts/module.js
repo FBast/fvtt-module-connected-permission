@@ -9,11 +9,11 @@ Hooks.on("renderDocumentOwnershipConfig", (app, html, data) => {
     const select = document.createElement("select");
     select.className = "connected-players-permission-select";
     select.innerHTML = `
-        <option value="DEFAULT">${game.i18n.localize("PL1E.PermissionDefault")}</option>
-        <option value="NONE">${game.i18n.localize("PL1E.PermissionNone")}</option>
-        <option value="LIMITED">${game.i18n.localize("PL1E.PermissionLimited")}</option>
-        <option value="OBSERVER">${game.i18n.localize("PL1E.PermissionObserver")}</option>
-        <option value="OWNER">${game.i18n.localize("PL1E.PermissionOwner")}</option>
+        <option value="DEFAULT">${game.i18n.localize("CP.PermissionDefault")}</option>
+        <option value="NONE">${game.i18n.localize("CP.PermissionNone")}</option>
+        <option value="LIMITED">${game.i18n.localize("CP.PermissionLimited")}</option>
+        <option value="OBSERVER">${game.i18n.localize("CP.PermissionObserver")}</option>
+        <option value="OWNER">${game.i18n.localize("CP.PermissionOwner")}</option>
     `;
 
     select.addEventListener("change", (e) => {
@@ -43,7 +43,7 @@ Hooks.on("renderDocumentOwnershipConfig", (app, html, data) => {
         wrapper.className = "form-group connected-players-permission";
 
         const label = document.createElement("label");
-        label.textContent = game.i18n.localize("PL1E.ConnectedPlayers");
+        label.textContent = game.i18n.localize("CP.ConnectedPlayers");
 
         wrapper.appendChild(label);
         wrapper.appendChild(select);
