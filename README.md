@@ -11,7 +11,7 @@
 
 ## Installation
 
-1. Download or clone this repository into your `modules/` folder.
+1. Download and unzip the content of the latest release into your "FoundryVTT\Data\modules" folder.
 2. Activate the module via `Settings > Manage Modules`.
 3. Open the permission settings of any document to see the new "Connected Players" dropdown.
 
