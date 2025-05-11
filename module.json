@@ -1,20 +1,19 @@
 {
-  "id": "module",
-  "title": "New Module",
-  "description": "",
-  "version": "#{VERSION}#",
-  "library": "false",
+  "id": "connected-permission",
+  "title": "Connected Permission",
+  "description": "A minimal FoundryVTT module that adds a dropdown to assign document permissions to all currently connected players at once.",
+  "version": "1.0.0",
+  "library": false,
   "manifestPlusVersion": "1.2.0",
   "compatibility": {
     "minimum": 10,
-    "verified": 10,
-    "maximum": 11
+    "verified": 12,
+    "maximum": 12
   },
   "authors": [
     {
-      "name": "The League of Extraordinary FVTT Developers",
-      "url": "https://github.com/League-of-Foundry-Developers",
-      "discord": "discordID#0001"
+      "name": "Dizy",
+      "url": "https://github.com/FBast"
     }
   ],
   "relationships": {
@@ -23,9 +22,6 @@
   },
   "esmodules": [
     "scripts/module.js"
-  ],
-  "scripts": [
-    "scripts/lib/lib.js"
   ],
   "styles": [
     "styles/module.css"
@@ -37,15 +33,15 @@
       "path": "languages/en.json"
     }
   ],
-  "url": "#{URL}#",
-  "manifest": "#{MANIFEST}#",
-  "download": "#{DOWNLOAD}#",
-  "license": "LICENSE",
+  "url": "https://github.com/FBast/fvtt-module-connected-permission",
+  "manifest": "https://github.com/FBast/fvtt-module-connected-permission/releases/latest/download/module.json",
+  "download": "https://github.com/FBast/fvtt-module-connected-permission/releases/latest/download/connected-permission.zip",
+  "license": "MIT",
   "readme": "README.md",
   "media": [
     {
       "type": "icon",
-      "url": "https://avatars2.githubusercontent.com/u/71292812?s=400&u=ccdb4eeb7abf551ca8f314e5a9bfd0479a4d3d41&v=4"
+      "url": "https://avatars.githubusercontent.com/u/71292812"
     }
   ]
 }
