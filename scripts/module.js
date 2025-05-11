@@ -10,6 +10,7 @@ Hooks.on("renderDocumentOwnershipConfig", (app, html, data) => {
     select.className = "connected-players-permission-select";
     select.innerHTML = `
         <option value="DEFAULT">${game.i18n.localize("CP.PermissionDefault")}</option>
+        <option value="INHERIT">${game.i18n.localize("CP.PermissionInherit")}</option>
         <option value="NONE">${game.i18n.localize("CP.PermissionNone")}</option>
         <option value="LIMITED">${game.i18n.localize("CP.PermissionLimited")}</option>
         <option value="OBSERVER">${game.i18n.localize("CP.PermissionObserver")}</option>
@@ -22,6 +23,7 @@ Hooks.on("renderDocumentOwnershipConfig", (app, html, data) => {
 
         const valueMap = {
             "DEFAULT": -20,
+            "INHERIT": -1,
             "NONE": 0,
             "LIMITED": 1,
             "OBSERVER": 2,
