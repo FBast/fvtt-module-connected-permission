@@ -35,7 +35,7 @@
   ],
   "url": "https://github.com/FBast/fvtt-module-connected-permission",
   "manifest": "https://github.com/FBast/fvtt-module-connected-permission/releases/latest/download/module.json",
-  "download": "https://github.com/FBast/fvtt-module-connected-permission/releases/latest/download/connected-permission.zip",
+  "download": "https://github.com/FBast/fvtt-module-connected-permission/releases/latest/download/module.zip",
   "license": "MIT",
   "readme": "README.md",
   "media": [
