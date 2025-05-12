@@ -30,3 +30,7 @@ In a document’s permission configuration window:
 ## License
 
 MIT – Free to use and modify.
+
+## Preview
+
+![FSM Preview](Documentation~/preview.png)
