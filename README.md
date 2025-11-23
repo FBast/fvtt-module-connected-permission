@@ -24,7 +24,7 @@ In a document’s permission configuration window:
 
 ## Compatibility
 
-- Foundry VTT v11 and v12.
+- Foundry VTT v13 and lower.
 - Does not override core behaviors – compatible with most systems and modules.
 
 ## License

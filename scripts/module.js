@@ -1,56 +1,80 @@
-console.log("Connected Permission | loaded");
+import {
+    MODULE_ID,
+    PERMISSION_MAP,
+    getConnectedPlayers,
+    getPermissionSelector,
+    localizePermission, getDefaultPermissionSelector
+} from "./helpers.js";
 
-Hooks.on("renderDocumentOwnershipConfig", (app, html, data) => {
-    if (html[0].querySelector(".connected-players-permission")) return;
+console.log(`${MODULE_ID} | loaded`);
 
-    const connectedUsers = game.users.filter(u => u.active && !u.isGM);
-    if (!connectedUsers.length) return;
+Hooks.on("renderApplicationV2", (app, html, data) => {
 
-    const select = document.createElement("select");
-    select.className = "connected-players-permission-select";
-    select.innerHTML = `
-        <option value="DEFAULT">${game.i18n.localize("CP.PermissionDefault")}</option>
-        <option value="INHERIT">${game.i18n.localize("CP.PermissionInherit")}</option>
-        <option value="NONE">${game.i18n.localize("CP.PermissionNone")}</option>
-        <option value="LIMITED">${game.i18n.localize("CP.PermissionLimited")}</option>
-        <option value="OBSERVER">${game.i18n.localize("CP.PermissionObserver")}</option>
-        <option value="OWNER">${game.i18n.localize("CP.PermissionOwner")}</option>
-    `;
+    // Only target the Ownership configuration UI
+    if (app.constructor.name !== "DocumentOwnershipConfig") return;
 
-    select.addEventListener("change", (e) => {
-        const selected = e.target.value;
-        if (!selected) return;
+    // Defer to next frame so that all DOM nodes are present
+    requestAnimationFrame(() => {
 
-        const valueMap = {
-            "DEFAULT": -20,
-            "INHERIT": -1,
-            "NONE": 0,
-            "LIMITED": 1,
-            "OBSERVER": 2,
-            "OWNER": 3
-        };
+        const root = app.element;
+        if (!root) return;
 
-        const newValue = valueMap[selected];
-        if (newValue === undefined) return;
+        // Prevent double injection
+        if (root.querySelector(".connected-players-permission")) return;
 
-        for (const user of connectedUsers) {
-            const input = html[0].querySelector(`select[name='${user.id}']`);
-            if (input) input.value = String(newValue);
+        const connectedUsers = getConnectedPlayers();
+
+        // Build the dropdown
+        const select = document.createElement("select");
+        select.className = "connected-players-permission-select";
+        select.innerHTML = Object.keys(PERMISSION_MAP)
+            .map(key => `<option value="${key}">${localizePermission(key)}</option>`)
+            .join("");
+
+        // Apply selected permission to all connected players
+        select.addEventListener("change", (event) => {
+            const key = event.target.value;
+            const newValue = PERMISSION_MAP[key];
+            if (newValue === undefined) return;
+
+            for (const user of connectedUsers) {
+                const selector = getPermissionSelector(user.id);
+                const input = root.querySelector(selector);
+                if (input) input.value = String(newValue);
+            }
+        });
+
+        // Locate the "All Players" row
+        const defaultInput = root.querySelector(getDefaultPermissionSelector());
+        if (!defaultInput) {
+            console.warn(`${MODULE_ID} | Could not find default permission selector`);
+            return;
         }
-    });
 
-    const allPlayersRow = html[0].querySelector("select[name='default']")?.closest(".form-group");
-    if (allPlayersRow) {
-        const wrapper = document.createElement("div");
+        const defaultRow = defaultInput.closest(".form-group");
+        if (!defaultRow) {
+            console.warn(`${MODULE_ID} | Default row element not found`);
+            return;
+        }
+
+        // Create the injected row
+        const wrapper = document.createElement("li");
         wrapper.className = "form-group connected-players-permission";
 
         const label = document.createElement("label");
-        label.textContent = game.i18n.localize("CP.ConnectedPlayers");
+        label.textContent = game.i18n.localize("ConnectedPlayers");
+
+        const fields = document.createElement("div");
+        fields.className = "form-fields";
+        fields.appendChild(select);
 
         wrapper.appendChild(label);
-        wrapper.appendChild(select);
-        allPlayersRow.insertAdjacentElement("afterend", wrapper);
+        wrapper.appendChild(fields);
 
+        // Insert after the default row
+        defaultRow.insertAdjacentElement("afterend", wrapper);
+
+        // Force recalculation of window height
         app.setPosition({ height: "auto" });
-    }
+    });
 });

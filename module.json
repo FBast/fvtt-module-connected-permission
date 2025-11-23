@@ -2,12 +2,12 @@
   "id": "connected-permission",
   "title": "Connected Permission",
   "description": "A minimal FoundryVTT module that adds a dropdown to assign document permissions to all currently connected players at once.",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "library": false,
   "compatibility": {
-    "minimum": 10,
-    "verified": 12,
-    "maximum": 12
+    "minimum": 12,
+    "verified": 13,
+    "maximum": 13
   },
   "authors": [
     {
@@ -21,7 +21,8 @@
     "requires": []
   },
   "esmodules": [
-    "scripts/module.js"
+    "scripts/module.js",
+    "scripts/helpers.js"
   ],
   "styles": [],
   "languages": [

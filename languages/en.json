@@ -1,9 +1,9 @@
 {
-    "CP.ConnectedPlayers": "Connected Players",
-    "CP.PermissionDefault": "Default",
-    "CP.PermissionInherit": "Inherit",
-    "CP.PermissionNone": "None",
-    "CP.PermissionLimited": "Limited",
-    "CP.PermissionObserver": "Observer",
-    "CP.PermissionOwner": "Owner"
+    "ConnectedPlayers": "Connected Players",
+    "PermissionDEFAULT": "Default",
+    "PermissionINHERIT": "Inherit",
+    "PermissionNONE": "None",
+    "PermissionLIMITED": "Limited",
+    "PermissionOBSERVER": "Observer",
+    "PermissionOWNER": "Owner"
 }
